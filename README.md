@@ -22,3 +22,5 @@ on Vim, you will need to adjust accordingly.
  * Run `nvim` and execute `:PluginInstall`
  * Reload again for your sanity
 
+[1]: https://neovim.io
+[2]: https://github.com/VundleVim/Vundle.vim
