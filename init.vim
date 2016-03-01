@@ -15,6 +15,7 @@ Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,3 +40,14 @@ let g:vim_json_syntax_conceal = 0
 
 let g:NERDTreeShowHidden = 1 
 map <C-n> :NERDTreeToggle<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" let g:syntastic_sh_checkers = ['shellcheck']
