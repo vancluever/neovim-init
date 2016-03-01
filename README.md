@@ -10,7 +10,7 @@ another workstation and start a new. RY bad. DRY good.
 Hence, this is a simple git repo with my `init.vim` in it, mainly 
 meant for me to be able to update it between my various workstations
 at work and home. If you, the viewer, happen to stumble upon it,
-however, it hope it helps you.
+however, I hope it helps you.
 
 ## Using
 
