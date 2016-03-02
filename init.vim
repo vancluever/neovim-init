@@ -17,12 +17,6 @@ Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'zchee/deoplete-go'
-Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'Shougo/neosnippet.vim'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
