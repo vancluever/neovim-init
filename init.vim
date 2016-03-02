@@ -16,6 +16,13 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'fatih/vim-go'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'zchee/deoplete-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet.vim'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,6 +38,7 @@ set mouse=""
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set tabstop=2
 
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 10000
@@ -50,4 +58,4 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" let g:syntastic_sh_checkers = ['shellcheck']
+command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
