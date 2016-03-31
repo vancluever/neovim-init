@@ -38,6 +38,7 @@ set tabstop=2
 let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 10000
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|vendor|bin)$'
 
 let g:vim_json_syntax_conceal = 0
 
@@ -54,6 +55,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
+let g:syntastic_ruby_checkers = [ 'mri', 'rubocop' ]
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 
