@@ -17,6 +17,7 @@ Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,5 +52,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
+
+let vim_markdown_preview_hotkey='<C-S-M>'
 
 command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
