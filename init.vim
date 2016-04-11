@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ***** VUNDLE PLUGINS *****
 Plugin 'tpope/vim-fugitive'
-Plugin 'markcornick/vim-terraform'
+Plugin 'hashivim/vim-terraform'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,3 +61,5 @@ let g:syntastic_ruby_checkers = [ 'mri', 'rubocop' ]
 let vim_markdown_preview_hotkey='<C-S-M>'
 
 command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
+
+au BufNewFile,BufRead *.md setlocal textwidth=80
