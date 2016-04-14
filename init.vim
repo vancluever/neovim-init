@@ -56,7 +56,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
-let g:syntastic_ruby_checkers = [ 'mri', 'rubocop' ]
+let g:syntastic_ruby_checkers = [ 'rubocop' ]
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 
