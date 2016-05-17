@@ -61,6 +61,8 @@ let g:syntastic_ruby_checkers = [ 'rubocop' ]
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 
+let g:terraform_fmt_on_save = 1
+
 command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
 
 au BufNewFile,BufRead *.md setlocal textwidth=80
