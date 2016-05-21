@@ -19,6 +19,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
