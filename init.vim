@@ -20,6 +20,7 @@ Plugin 'fatih/vim-go'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/Vim-repeat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,7 +39,7 @@ set softtabstop=2
 set tabstop=2
 
 let g:ctrlp_max_depth = 40
-let g:ctrlp_max_files = 10000
+let g:ctrlp_max_files = 30000
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|vendor|bin)$'
 
@@ -60,10 +61,16 @@ let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
 let g:syntastic_go_go_build_args = [ '-i' ]
 let g:syntastic_ruby_checkers = [ 'rubocop' ]
 
+let g:syntastic_markdown_checkers = [ 'textlint' ]
+
 let vim_markdown_preview_hotkey='<C-S-M>'
+let vim_markdown_preview_github=1
 
 let g:terraform_fmt_on_save = 1
 
 command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
 
 au BufNewFile,BufRead *.md setlocal textwidth=80
+
+" need to fix this for termite
+hi MatchParen      ctermfg=240  ctermbg=208 cterm=bold
