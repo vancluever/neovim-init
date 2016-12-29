@@ -68,9 +68,12 @@ let vim_markdown_preview_github=1
 
 let g:terraform_fmt_on_save = 1
 
-command! GoDepsSave execute '!GOVENDOREXPERIMENT=1 godep save ./...'
+command! -range HclNewLineAdd <line1>,<line2>s/\${/\r${/g | noh
+command! -range HclNewLineRemove <line1>,<line2>s/\n\${/${/g | noh
 
 au BufNewFile,BufRead *.md setlocal textwidth=80
+au FileType gitcommit setlocal spell spelllang=en_us
+au FileType markdown setlocal spell spelllang=en_us
 
 " need to fix this for termite
 hi MatchParen      ctermfg=240  ctermbg=208 cterm=bold
