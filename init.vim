@@ -75,6 +75,9 @@ command! FmtJson %!jq .
 au BufNewFile,BufRead *.md setlocal textwidth=80
 au FileType gitcommit setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
+au FileType mail setlocal spell spelllang=en_us
 
 " need to fix this for termite
 hi MatchParen      ctermfg=240  ctermbg=208 cterm=bold
+
+set guicursor=
