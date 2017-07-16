@@ -60,11 +60,15 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
 let g:syntastic_go_go_build_args = [ '-i' ]
 let g:syntastic_ruby_checkers = [ 'rubocop' ]
+let g:syntastic_javascript_checkers = [ 'eslint', 'flow' ]
 
 let g:syntastic_markdown_checkers = [ 'textlint' ]
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 let vim_markdown_preview_github=1
+if has('unix')
+  let vim_markdown_preview_use_xdg_open=1
+endif
 
 let g:terraform_fmt_on_save = 1
 
@@ -75,5 +79,6 @@ au BufNewFile,BufRead *.md setlocal textwidth=80
 au FileType gitcommit setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
 
+set spell spelllang=en_us
 " need to fix this for termite
 hi MatchParen      ctermfg=240  ctermbg=208 cterm=bold
