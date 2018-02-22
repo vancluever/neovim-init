@@ -14,13 +14,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
 Plugin 'elzr/vim-json'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'fatih/vim-go'
 Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/Vim-repeat'
+Plugin 'sebdah/vim-delve'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,17 +51,22 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_debug = 1
 
-let g:syntastic_go_checkers = [ 'go', 'govet', 'golint' ]
-let g:syntastic_go_go_build_args = [ '-i' ]
-let g:syntastic_ruby_checkers = [ 'rubocop' ]
-let g:syntastic_javascript_checkers = [ 'eslint', 'flow' ]
+" let g:syntastic_go_checkers = [ 'go', 'govet', 'gometalinter' ]
+" let g:syntastic_go_go_build_args = [ '-i' ]
+" let g:syntastic_ruby_checkers = [ 'rubocop' ]
+" let g:syntastic_javascript_checkers = [ 'eslint', 'flow' ]
+" 
+" let g:syntastic_markdown_checkers = [ 'textlint' ]
 
-let g:syntastic_markdown_checkers = [ 'textlint' ]
+let g:ale_linters = {'go': ['go build', 'gometalinter']}
+let g:ale_go_gometalinter_options = '--concurrency=2 --aggregate --disable=megacheck'
+let g:ale_open_list = 1
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 let vim_markdown_preview_github=1
