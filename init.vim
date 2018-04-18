@@ -66,7 +66,6 @@ set statusline+=%*
 
 let g:ale_linters = {'go': ['go build', 'gometalinter']}
 let g:ale_go_gometalinter_options = '--concurrency=2 --aggregate --disable=megacheck'
-let g:ale_open_list = 1
 
 let vim_markdown_preview_hotkey='<C-S-M>'
 let vim_markdown_preview_github=1
