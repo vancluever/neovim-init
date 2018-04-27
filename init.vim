@@ -15,6 +15,7 @@ Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
 Plugin 'elzr/vim-json'
 Plugin 'w0rp/ale'
+Plugin 'maximbaz/lightline-ale'
 Plugin 'fatih/vim-go'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-surround'
@@ -44,26 +45,6 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|vendor|bin)$'
 
 let g:vim_json_syntax_conceal = 0
 
-let g:NERDTreeShowHidden = 1 
-map <C-n> :NERDTreeToggle<CR>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_debug = 1
-
-" let g:syntastic_go_checkers = [ 'go', 'govet', 'gometalinter' ]
-" let g:syntastic_go_go_build_args = [ '-i' ]
-" let g:syntastic_ruby_checkers = [ 'rubocop' ]
-" let g:syntastic_javascript_checkers = [ 'eslint', 'flow' ]
-" 
-" let g:syntastic_markdown_checkers = [ 'textlint' ]
-
 let g:ale_linters = {'go': ['go build', 'gometalinter']}
 let g:ale_go_gometalinter_options = '--concurrency=2 --aggregate --disable=megacheck'
 
@@ -75,14 +56,31 @@ endif
 
 let g:terraform_fmt_on_save = 1
 
-command! -range HclNewLineAdd <line1>,<line2>s/\${/\r${/g | noh
-command! -range HclNewLineRemove <line1>,<line2>s/\n\${/${/g | noh
-command! FmtJson %!jq .
-
 au BufNewFile,BufRead *.md setlocal textwidth=80
 au FileType gitcommit setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
 au FileType mail setlocal spell spelllang=en_us
+
+let g:lightline = {}
+let g:lightline.colorscheme = 'molokai'
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+
+let g:lightline.active = { 'right': [
+  \ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+  \ [ 'lineinfo' ],
+  \ [ 'fileformat', 'fileencoding', 'filetype' ],
+  \ ] }
 
 set spell spelllang=en_us
 " Need to fix this for termite
