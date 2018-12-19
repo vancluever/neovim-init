@@ -9,7 +9,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ***** VUNDLE PLUGINS *****
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'hashivim/vim-terraform'
+Plugin 'hashivim/vim-nomadproject'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomasr/molokai'
 Plugin 'itchyny/lightline.vim'
@@ -17,10 +19,15 @@ Plugin 'elzr/vim-json'
 Plugin 'w0rp/ale'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-hclfmt'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/Vim-repeat'
 Plugin 'sebdah/vim-delve'
+Plugin 'junegunn/vader.vim'
+Plugin 'hashicorp/sentinel.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +52,11 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|vendor|bin)$'
 
 let g:vim_json_syntax_conceal = 0
 
+let g:deoplete#enable_at_startup = 1
+
+if len(getbufinfo({'buflisted':1})) > 1
+  let g:ale_lint_on_enter = 0
+endif
 let g:ale_linters = {'go': ['go build', 'gometalinter']}
 let g:ale_go_gometalinter_options = '--concurrency=2 --aggregate --disable=megacheck'
 
@@ -56,6 +68,11 @@ endif
 
 let g:terraform_fmt_on_save = 1
 
+let g:gutentags_define_advanced_commands = 1
+let g:gutentags_ctags_executable_ruby = 'ripper-tags'
+
+"standard text width = 69, except for markdown, which we set at 80
+setlocal textwidth=69
 au BufNewFile,BufRead *.md setlocal textwidth=80
 au FileType gitcommit setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
@@ -81,6 +98,12 @@ let g:lightline.active = { 'right': [
   \ [ 'lineinfo' ],
   \ [ 'fileformat', 'fileencoding', 'filetype' ],
   \ ] }
+
+let ruby_fold = 1
+set foldlevel=20
+
+command! MermaidPreview silent exec "!mermaid --preview %:t"
+command! MermaidPreviewDebug !mermaid --preview -w 1280 %:t
 
 set spell spelllang=en_us
 " Need to fix this for termite
