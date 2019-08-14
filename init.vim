@@ -71,6 +71,8 @@ let g:terraform_fmt_on_save = 1
 let g:gutentags_define_advanced_commands = 1
 let g:gutentags_ctags_executable_ruby = 'ripper-tags'
 
+"standard text width = 69, except for markdown, which we set at 80
+setlocal textwidth=69
 au BufNewFile,BufRead *.md setlocal textwidth=80
 au FileType gitcommit setlocal spell spelllang=en_us
 au FileType markdown setlocal spell spelllang=en_us
